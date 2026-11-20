@@ -20,7 +20,7 @@ class StudentFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'nis' => fake()->randomNumber(5, true),
+            'nis' => fake()->unique()->numerify('######'),
             'classroom_id' => Classroom::factory(),
             'address' => fake()->address(),
         ];

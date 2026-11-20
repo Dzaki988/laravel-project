@@ -7,18 +7,11 @@ use Illuminate\Database\Seeder;
 
 class SubjectSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
-        $subjects = [
-            'Pemrograman Web',
-            'Pemrograman Berorientasi Objek',
-            'Basis Data',
-            'Desain Multimedia',
-            'Jaringan Komputer',
-        ];
-
-        foreach ($subjects as $name) {
-            Subject::firstOrCreate(['name' => $name]);
-        }
+        Subject::factory()->count(10)->create();
     }
 }

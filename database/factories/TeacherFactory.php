@@ -11,8 +11,7 @@ class TeacherFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            // 10 digit integer sesuai instruksi: randomBetween / randomNumber
-            'niy' => fake()->numberBetween(1000000000, 9999999999),
+            'niy' => fake()->unique()->numerify('2#########'),
             'subject_id' => Subject::factory(),
             'start_date' => fake()->date(),
         ];
