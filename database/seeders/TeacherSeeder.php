@@ -13,9 +13,10 @@ class TeacherSeeder extends Seeder
      */
     public function run(): void
     {
-        Teacher::factory()
-            ->count(15)
-            ->recycle(Subject::all())
-            ->create();
+        Subject::query()
+            ->whereDoesntHave('teacher')
+            ->each(function (Subject $subject): void {
+                Teacher::factory()->for($subject)->create();
+            });
     }
 }

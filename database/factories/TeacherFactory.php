@@ -11,7 +11,7 @@ class TeacherFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'niy' => fake()->unique()->numerify('2#########'),
+            'niy' => fake()->unique()->numerify('2#####'),
             'subject_id' => Subject::factory(),
             'start_date' => fake()->date(),
         ];

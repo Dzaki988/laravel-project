@@ -33,11 +33,14 @@
                                 <option value="{{ $subject->id }}" @selected(old('subject_id') == $subject->id)>{{ $subject->name }}</option>
                             @endforeach
                         </select>
+                        @if ($subjects->isEmpty())
+                            <p class="mt-2 text-sm text-gray-500">Semua mata pelajaran sudah memiliki guru.</p>
+                        @endif
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end gap-3">
                     <a href="{{ route('admin.teacher.index') }}" class="rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium">Batal</a>
-                    <button type="submit" class="rounded-lg bg-blue-700 px-4 py-2.5 text-sm font-medium text-white">Simpan</button>
+                    <button type="submit" @disabled($subjects->isEmpty()) class="rounded-lg bg-blue-700 px-4 py-2.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-50">Simpan</button>
                 </div>
             </form>
         </div>

@@ -12,7 +12,7 @@ class SubjectController extends Controller
     public function index(): View
     {
         $title = 'Subject';
-        $subjects = Subject::withCount('teachers')->get();
+        $subjects = Subject::with('teacher')->get();
 
         return view('admin.subject.index', compact(
             'title',

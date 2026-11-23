@@ -16,7 +16,7 @@
                                 <th scope="col" class="px-4 py-3">No</th>
                                 <th scope="col" class="px-4 py-3">Nama mata pelajaran</th>
                                 <th scope="col" class="px-4 py-3">Kode mata pelajaran</th>
-                                <th scope="col" class="px-4 py-3">Deskripsi</th>
+                                <th scope="col" class="px-4 py-3">Nama guru</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,7 +25,7 @@
                                     <td class="px-4 py-3">{{ $loop->iteration }}</td>
                                     <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">{{ $subject->name }}</td>
                                     <td class="px-4 py-3">{{ $subject->id }}</td>
-                                    <td class="px-4 py-3">{{ $subject->teachers_count }} guru</td>
+                                    <td class="px-4 py-3">{{ $subject->teacher?->name ?? 'Belum ditugaskan' }}</td>
                                 </tr>
                             @empty
                                 <tr><td colspan="4" class="px-4 py-8 text-center">Belum ada data subject.</td></tr>
